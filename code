@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+class selection_sort{
+    void fun(){
+        System.out.println("Enter the size of array : ");
+        Scanner obj_scanner = new Scanner(System.in);
+        int len = obj_scanner.nextInt();
+        int arr[] = new int[len];
+        System.out.println("Enter the elements : ");
+        for( int i = 0; i<len; i++){
+            arr[i] = obj_scanner.nextInt();
+        }
+        System.out.println("Unsorted array is : ");
+        for(int i = 0; i<arr.length;i++){
+            System.out.print(arr[i]+" ");
+        }
+        System.out.println();
+
+        for(int i=0;i<arr.length;i++){
+            int max_idx = i;
+            for (int j=i+1;j<arr.length;j++){
+                if (arr[j]<arr[max_idx]){
+                    max_idx = j;
+                }
+            }
+            int temp = arr[max_idx];
+            arr[max_idx] = arr[i];
+            arr[i] = temp;
+        }
+        System.out.println("Sorted array is : ");
+        for (int i=0; i<arr.length;i++){
+            System.out.print(arr[i]+" ");
+        }
+    }
+}
+
+public class test{
+    public static void main(String[] args) {
+        selection_sort obj_ss = new selection_sort();
+        obj_ss.fun();
+    }
+}
